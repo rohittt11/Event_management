@@ -1,0 +1,24 @@
+<!-- views/register_event.ejs -->
+<%- include('partials/header') %>
+
+<h2>Register for <%= event.name %></h2>
+
+<form action="/events/<%= event._id %>/register" method="POST">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" placeholder="Your Name" required />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Your Email"
+      required
+    />
+  </div>
+
+  <button type="submit">Register</button>
+</form>

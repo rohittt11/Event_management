@@ -1,0 +1,45 @@
+<!-- views/events.ejs -->
+<%- include('partials/header') %>
+
+<h2>All Events</h2>
+
+<% if (events.length === 0) { %>
+<p>No events found.</p>
+<% } else { %> <% events.forEach(event => { %>
+<div class="event-box">
+  <h3><strong>Event Name: </strong> <%= event.name %></h3>
+  <h3><strong>Description: </strong> <%= event.description %></h3>
+  <p><strong>Date:</strong> <%= new Date(event.date).toLocaleDateString() %></p>
+  <p><strong>Location:</strong> <%= event.location %></p>
+  <% if (event.banner) { %>
+  <img
+    src="/<%= event.banner %>"
+    alt="<%= event.name %> Banner"
+    style="max-width: 50%; height: 50%"
+  />
+  <% } %>
+  <div class="buttons">
+    <a href="/events/<%= event._id %>" class="button">More Details</a>
+    <a href="/events/<%= event._id %>/edit" class="button">Update</a>
+    <form
+      action="/events/<%= event._id %>?_method=DELETE"
+      method="POST"
+      onsubmit="return confirm('Are you sure you want to delete this event?');"
+    >
+      <button type="submit" class="button">Delete</button>
+    </form>
+  </div>
+</div>
+<% }) %>
+
+<!-- Pagination -->
+<div class="pagination">
+  <% for(let i = 1; i <= totalPages; i++) { %>
+  <a
+    href="/events?page=<%= i %>"
+    class="button <%= currentPage == i ? 'active' : '' %>"
+    ><%= i %></a
+  >
+  <% } %>
+</div>
+<% } %>

@@ -1,0 +1,48 @@
+<%- include('partials/header') %>
+
+<h2>Create New Event</h2>
+<form action="/events" method="POST" enctype="multipart/form-data">
+  <div>
+    <label for="name">Event Name:</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Enter event name"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <textarea
+      id="description"
+      name="description"
+      placeholder="Enter event description"
+      required
+    ></textarea>
+  </div>
+
+  <div>
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required />
+  </div>
+
+  <div>
+    <label for="location">Location:</label>
+    <input
+      type="text"
+      id="location"
+      name="location"
+      placeholder="Enter event location"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="banner">Banner:</label>
+    <input type="file" id="banner" name="banner" accept="image/*" />
+  </div>
+
+  <button type="submit">Create Event</button>
+</form>

@@ -1,0 +1,29 @@
+<!-- views/event.ejs -->
+<%- include('partials/header') %>
+
+<h1><%= event.name %></h1>
+<p><%= event.description %></p>
+<p><strong>Date:</strong> <%= event.date.toDateString() %></p>
+<p><strong>Location:</strong> <%= event.location %></p>
+
+<% if (event.banner) { %>
+<img
+  src="/<%= event.banner %>"
+  alt="<%= event.name %> Banner"
+  style="max-width: 50%; height: 50%"
+/>
+<% } %>
+
+<!-- Button to navigate to the registration page -->
+<a href="/events/<%= event._id %>/register">
+  <button class="register">Register for this Event</button>
+</a>
+
+<!-- Add Update and Delete buttons similarly -->
+<a href="/events/<%= event._id %>/edit">
+  <button>Update Event</button>
+</a>
+
+<form action="/events/<%= event._id %>?_method=DELETE" method="POST">
+  <button type="submit">Delete Event</button>
+</form>
