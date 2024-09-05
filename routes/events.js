@@ -6,10 +6,10 @@ const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 
-// File upload configuration
+// File upload 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "public/uploads/"); // Ensure this directory exists
+    cb(null, "public/uploads/"); 
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "-" + file.originalname);
@@ -34,7 +34,7 @@ const upload = multer({
   },
 });
 
-// Render create event form
+// Render create event
 router.get("/create", (req, res) => {
   res.render("create_event");
 });
@@ -90,7 +90,7 @@ router.get("/:id/register", async (req, res) => {
 // Update event by ID
 router.put(
   "/:id",
-  upload.single("banner"), // Add multer middleware here
+  upload.single("banner"),
   [
     body("name").optional().notEmpty().withMessage("Name is required"),
     body("description")
