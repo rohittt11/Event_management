@@ -11,7 +11,7 @@ exports.createEvent = async (req, res) => {
     if (req.file) {
       event.banner = path
         .join("uploads", req.file.filename)
-        .replace(/\\/g, "/");
+       
     }
     await event.save();
     res.status(201).json(event);
