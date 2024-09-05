@@ -49,6 +49,7 @@ To get started with the Event Management API, follow these steps:
    MONGO_URI=mongodb://localhost:27017/eventdb
    EMAIL_USER=your-email@example.com
    EMAIL_PASS=your-email-password
+   PORT=PORT
    ```
 
 4. **Run the Application:**
