@@ -99,10 +99,5 @@ To get started with the Event Management API, follow these steps:
 - **Non-existent Event ID**: Returns 404 Not Found.
 - **Failed Email Delivery**: Returns 500 Internal Server Error.
 
-## Acknowledgements
-
-Special thanks to the open-source communities and documentation authors whose tools and guidance were invaluable in developing this project.
-
 ## Thank You
-
 Thank you for considering my project. I appreciate the opportunity to showcase my work and look forward to any feedback or further discussion.
