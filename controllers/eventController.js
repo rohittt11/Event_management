@@ -94,9 +94,6 @@ exports.updateEventById = async (req, res) => {
 
     // Save the updated event
     await event.save();
-
-    // Optionally, you can use flash messages or redirect with a success message
-    // For simplicity, we'll redirect to the event details page
     res.redirect(`/events/${eventId}?success=updated`);
   } catch (error) {
     console.error(error);
